@@ -20,17 +20,32 @@ public class car_movement : MonoBehaviour
     [SerializeField] private float driftLateralGrip = 2f;
     [SerializeField] private float driftSteeringMultiplier = 1.4f;
 
+    [Header("Ground Check")]
+    [SerializeField] private float groundCheckDistance = 0.6f;
+    [SerializeField] private float groundCheckRadius = 0.35f;
+    [SerializeField] private LayerMask groundMask = ~0;
+
+    [Header("Air Control")]
+    [SerializeField] private float airYawTorque = 40f;
+    [SerializeField] private float airPitchTorque = 25f;
+
+    [Header("Upright Assist")]
+    [SerializeField] private float uprightStrength = 18f;
+    [SerializeField] private float uprightDamping = 2.5f;
+
     private Rigidbody rb;
     private float throttleInput;
     private float steeringInput;
     private bool isBraking;
     private bool isDrifting;
+    private bool isGrounded;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        rb.useGravity = true;
         rb.centerOfMass = new Vector3(0f, -0.35f, 0f);
-        rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+        rb.constraints = RigidbodyConstraints.None;
     }
 
     private void Update()
@@ -43,9 +58,37 @@ public class car_movement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        UpdateGroundedState();
+
+        if (!isGrounded)
+        {
+            ApplyAirControl();
+            return;
+        }
+
         ApplyForwardDrive();
         ApplySteering();
         ApplyLateralGrip();
+        ApplyUprightAssist();
+    }
+
+    private void ApplyAirControl()
+    {
+        Vector3 yawTorque = Vector3.up * steeringInput * airYawTorque;
+        Vector3 pitchTorque = transform.right * -throttleInput * airPitchTorque;
+        rb.AddTorque(yawTorque + pitchTorque, ForceMode.Acceleration);
+    }
+
+    private void ApplyUprightAssist()
+    {
+        Vector3 tiltAxis = Vector3.Cross(transform.up, Vector3.up);
+        rb.AddTorque(tiltAxis * uprightStrength - rb.angularVelocity * uprightDamping, ForceMode.Acceleration);
+    }
+
+    private void UpdateGroundedState()
+    {
+        Vector3 origin = transform.position + Vector3.up * 0.2f;
+        isGrounded = Physics.SphereCast(origin, groundCheckRadius, Vector3.down, out _, groundCheckDistance, groundMask, QueryTriggerInteraction.Ignore);
     }
 
     private void ApplyForwardDrive()
