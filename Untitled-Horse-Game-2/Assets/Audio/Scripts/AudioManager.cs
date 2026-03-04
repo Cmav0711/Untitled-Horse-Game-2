@@ -31,4 +31,16 @@ public class AudioManager : MonoBehaviour
         }
         return audioSource;
     }
+
+    public void PlaySFXOneShot(AudioClip clip)
+    {
+        AudioSource audioSource = sfxPool.PlaceNextObject(Vector3.zero, Quaternion.identity)?.GetComponent<AudioSource>();
+        if (audioSource != null)
+        {
+            audioSource.clip = clip;
+            audioSource.volume = 1;
+            audioSource.pitch = 1;
+            audioSource.Play();
+        }
+    }
 }
