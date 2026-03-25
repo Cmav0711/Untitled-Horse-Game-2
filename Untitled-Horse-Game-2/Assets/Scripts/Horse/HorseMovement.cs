@@ -24,8 +24,8 @@ public class HorseMovement : MonoBehaviour
     [Space(10)]
     public bool Grounded = true;
     public float GroundedOffset = -0.14f;
-    public float GroundedRadius = 0.28f;
-    public LayerMask GroundLayers;
+    public float GroundedRadius = 1.0f;
+    public LayerMask Ground;
 
     [Header("Cinemachine")]
     public GameObject CinemachineCameraTarget;
@@ -104,7 +104,6 @@ public class HorseMovement : MonoBehaviour
         JumpAndGravity();
         GroundedCheck();
         Move();
-        Debug.Log(Grounded);
     }
 
     private void LateUpdate()
@@ -153,7 +152,7 @@ public class HorseMovement : MonoBehaviour
     {
         Vector3 spherePosition = new Vector3(transform.position.x, transform.position.y - GroundedOffset,
             transform.position.z);
-        Grounded = Physics.CheckSphere(spherePosition, GroundedRadius, GroundLayers,
+        Grounded = Physics.CheckSphere(spherePosition, GroundedRadius, Ground,
             QueryTriggerInteraction.Ignore);
     }
 
