@@ -85,11 +85,19 @@ public void Next(){
        else if (primeInt == 20){
                 //gameHandler.AddPlayerStat(1);
                 Char1name.text = "";
-                Char1speech.text = "it tastes like heaven";
+                Char1speech.text = "with every drop";
+                Char2name.text = "";
+                Char2speech.text = "";
+        } else if (primeInt == 21){
+                //gameHandler.AddPlayerStat(1);
+                Char1name.text = "";
+                Char1speech.text = "life seems more worth drinking for";
                 Char2name.text = "";
                 Char2speech.text = "";
                 // Turn off the "Next" button, turn on "Scene" button/s
                 nextButton.SetActive(false);
+                Choice1a.SetActive(true);
+                Choice1b.SetActive(true);
                 allowSpace = false;
                 NextScene1Button.SetActive(true);
         }
@@ -101,15 +109,37 @@ public void Next(){
                 Char2name.text = "";
                 Char2speech.text = "";
         }
-       else if (primeInt == 31){
+        else if (primeInt == 31){
                 Char1name.text = "";
                 Char1speech.text = "as you are a horse";
                 Char2name.text = "";
                 Char2speech.text = "";
+        }
+        else if (primeInt == 32){
+                Char1name.text = "";
+                Char1speech.text = "you dream of modelo";
+                Char2name.text = "";
+                Char2speech.text = "";
+        }
+       else if (primeInt == 33){
+                Char1name.text = "";
+                Char1speech.text = "and then nothing more.";
+                Char2name.text = "";
+                Char2speech.text = "";
+        }
+        else if (primeInt == 34){
+                Char1name.text = "";
+                Char1speech.text = "";
+                Char2name.text = "";
+                Char2speech.text = "";
                 // Turn off the "Next" button, turn on "Scene" button/s
+                DialogueDisplay.SetActive(false);
+                ArtBG1.SetActive(false);
+                Choice1a.SetActive(false);
+                Choice1b.SetActive(false);
+                NextScene1Button.SetActive(false);
+                NextScene2Button.SetActive(false);
                 nextButton.SetActive(false);
-                allowSpace = false;
-                NextScene2Button.SetActive(true);
         }
 
       //Please do NOT delete this final bracket that ends the Next() function:
