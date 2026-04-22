@@ -19,7 +19,6 @@ public class HorseMovement : MonoBehaviour
     [Space(10)]
     public float JumpHeight = 1.2f;
     public float Gravity = -15.0f;
-    public float JumpTimeout = 0.50f;
     public float FallTimeout = 0.15f;
     [Space(10)]
     public bool Grounded = true;
@@ -52,7 +51,6 @@ public class HorseMovement : MonoBehaviour
     private float _terminalVelocity = 53.0f;
 
     // timeout deltatime
-    private float _jumpTimeoutDelta;
     private float _fallTimeoutDelta;
 
     #if ENABLE_INPUT_SYSTEM
@@ -95,7 +93,6 @@ public class HorseMovement : MonoBehaviour
         _cameraStartingPosition = CinemachineCameraTarget.transform.position;
         _cameraStartingRotation = CinemachineCameraTarget.transform.rotation;
 
-        _jumpTimeoutDelta = JumpTimeout;
         _fallTimeoutDelta = FallTimeout;
     }
 
@@ -122,19 +119,13 @@ public class HorseMovement : MonoBehaviour
                 _verticalVelocity = -2f;
             }
 
-            if (_input.jump && _jumpTimeoutDelta <= 0.0f)
+            if (_input.jump)
             {
                 _verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
-            }
-
-            if(_jumpTimeoutDelta >= 0.0f)
-            {
-                _jumpTimeoutDelta -= Time.deltaTime;
             }
         }
         else
         {
-            _jumpTimeoutDelta = JumpTimeout;
             if(_fallTimeoutDelta >= 0.0f)
             {
                 _fallTimeoutDelta -= Time.deltaTime;
