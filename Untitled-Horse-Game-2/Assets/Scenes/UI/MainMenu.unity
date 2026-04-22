@@ -1107,28 +1107,15 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &1618123291
+--- !u!1 &1618123291 stripped
 GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 6217540013436845799, guid: 0e2a61d5ba58b2441b3ad63e6404b587, type: 3}
+  m_PrefabInstance: {fileID: 5634124709626787263}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1618123293}
-  - component: {fileID: 1618123292}
-  m_Layer: 0
-  m_Name: SceneChanger
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1618123292
+--- !u!114 &1618123292 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 8624271636897644616, guid: 0e2a61d5ba58b2441b3ad63e6404b587, type: 3}
+  m_PrefabInstance: {fileID: 5634124709626787263}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1618123291}
   m_Enabled: 1
@@ -1136,21 +1123,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13dddf8dcf79c044ea4c1c2b1457545b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneChanger
---- !u!4 &1618123293
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1618123291}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1703623572
 GameObject:
   m_ObjectHideFlags: 0
@@ -1490,13 +1462,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 382544163}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-        m_MethodName: PlaySFXOneShot
-        m_Mode: 2
+      - m_Target: {fileID: 1618123292}
+        m_TargetAssemblyTypeName: SceneChanger, Assembly-CSharp
+        m_MethodName: LoadWalk
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: feb674837dfc55e4db1b3370b076c6e7, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1562,7 +1534,7 @@ MonoBehaviour:
           m_MethodName: PlaySFXOneShot
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: 7f090d3ef0ee7914780e7e0d65bfe516, type: 3}
+            m_ObjectArgument: {fileID: 8300000, guid: 35fe44f0f2ad85348bb462b8a6fe8d68, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -1781,6 +1753,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2106673654}
   m_CullTransparentMesh: 1
+--- !u!1001 &5634124709626787263
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 587592476070802248, guid: 0e2a61d5ba58b2441b3ad63e6404b587, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 587592476070802248, guid: 0e2a61d5ba58b2441b3ad63e6404b587, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 587592476070802248, guid: 0e2a61d5ba58b2441b3ad63e6404b587, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 587592476070802248, guid: 0e2a61d5ba58b2441b3ad63e6404b587, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 587592476070802248, guid: 0e2a61d5ba58b2441b3ad63e6404b587, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 587592476070802248, guid: 0e2a61d5ba58b2441b3ad63e6404b587, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 587592476070802248, guid: 0e2a61d5ba58b2441b3ad63e6404b587, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 587592476070802248, guid: 0e2a61d5ba58b2441b3ad63e6404b587, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 587592476070802248, guid: 0e2a61d5ba58b2441b3ad63e6404b587, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 587592476070802248, guid: 0e2a61d5ba58b2441b3ad63e6404b587, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6217540013436845799, guid: 0e2a61d5ba58b2441b3ad63e6404b587, type: 3}
+      propertyPath: m_Name
+      value: SceneChanger
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0e2a61d5ba58b2441b3ad63e6404b587, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1788,5 +1817,5 @@ SceneRoots:
   - {fileID: 1703623575}
   - {fileID: 1393296286}
   - {fileID: 1364106107}
-  - {fileID: 1618123293}
+  - {fileID: 5634124709626787263}
   - {fileID: 382544164}

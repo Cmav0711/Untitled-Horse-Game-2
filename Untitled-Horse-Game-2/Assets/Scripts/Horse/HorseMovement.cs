@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 #endif
 using StarterAssets;
 
+
 [RequireComponent(typeof(CharacterController))]
 #if ENABLE_INPUT_SYSTEM
 [RequireComponent(typeof(PlayerInput))]
@@ -59,6 +60,7 @@ public class HorseMovement : MonoBehaviour
     private CharacterController _controller;
     private StarterAssetsInputs _input;
     private GameObject _mainCamera;
+    private Animator _animator;
 
     private const float _threshold = 0.01f;
     private bool IsCurrentDeviceMouse
@@ -86,6 +88,7 @@ public class HorseMovement : MonoBehaviour
         _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
         _controller = GetComponent<CharacterController>();
         _input = GetComponent<StarterAssetsInputs>();
+        _animator = GetComponent<Animator>();
         #if ENABLE_INPUT_SYSTEM
             _playerInput = GetComponent<PlayerInput>();
         #endif
@@ -149,6 +152,12 @@ public class HorseMovement : MonoBehaviour
 
     private void Move()
     {
+        if (_animator != null)
+        {
+            _animator.SetBool("IsMoving", _input.move != Vector2.zero);
+            _animator.SetBool("IsSprinting", _input.sprint && _input.move != Vector2.zero);
+        }
+
         float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
 
         if(_input.move == Vector2.zero) targetSpeed = 0.0f;

@@ -4,7 +4,17 @@ using UnityEngine.SceneManagement;
 
 public class SceneChanger : MonoBehaviour
 {
-    void LoadSettings()
+    public void LoadWalk()
     {
+        SceneManager.LoadScene(2);
+    }
+
+    public void LoadCar()
+    {
+        SceneManager.LoadScene(3);
+    }
+    public void LoadVN()
+    {
+        SceneManager.LoadScene(4);
     }
 }

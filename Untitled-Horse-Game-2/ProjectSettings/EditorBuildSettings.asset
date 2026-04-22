@@ -4,7 +4,22 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/UI/MainMenu.unity
+    guid: 4881369bb1cc04543ab862d04dce4945
+  - enabled: 1
+    path: Assets/Scenes/UI/Settings.unity
+    guid: fc0e52b149c3f9b40a0bd7b0542155dc
+  - enabled: 1
+    path: Assets/Scenes/MovementTestScene.unity
+    guid: fff23d7ec83b2aa4798ce79fcff31fbf
+  - enabled: 1
+    path: Assets/Scenes/DrivingScene.unity
+    guid: f78288e4227fdea468ff44637ba19540
+  - enabled: 1
+    path: Assets/Scenes/visual noveling/HoldingCell.unity
+    guid: 5e980303af3417e4bb1a8de15563da94
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 289c1b55c9541489481df5cc06664110, type: 3}
   m_UseUCBPForAssetBundles: 0
